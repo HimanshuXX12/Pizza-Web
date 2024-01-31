@@ -1,0 +1,75 @@
+  
+
+// @import './variable'
+body {
+    font-family: "Lato", "sans-serif";
+    -webkit-font-smoothing: antialised;
+    color: #232323;
+    height:4000px;
+  }
+  
+  ul li:last-child a {
+    background-color: #FE5F1E;
+  }
+  
+  ul li:last-child a:hover {
+    background-color: #b23301;
+   
+  }
+  
+  ul .element:hover {
+    background-color:coral;
+    padding:0.6rem 0.9rem;
+    border:2px  solid red;
+    border-radius:5px;
+    color:lightcyan;
+    font-weight: bold;
+    transition:  all 0.5s ease-in-out;
+  }
+  
+  
+  .hero{
+      background: #F8F8F8;
+  }
+  
+  
+  .outlet{
+      border:2px solid black;
+  }
+  
+  
+  .small{
+      background: #F8F8F8;
+  }
+  
+  
+  
+  
+  .cart{
+      border:2px solid #FE5F1E;
+      color:#FE5F1E;
+    transition:  all 0.5s ease-in-out;
+    
+  }
+  
+  
+  .cart:hover{
+      border-color: #F8F8F8;
+      background-color:#FE5F1E ;
+      color: #F8F8F8;
+  
+  }
+  
+  .packet:hover{
+  
+      transform: scale(1.2);
+      transition: all 0.3s;
+  
+       
+  }
+
+
+  
+  .dog{
+    background: #FE5F1E;
+  }
