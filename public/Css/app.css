@@ -2,29 +2,60 @@ body {
   font-family: "Lato", "sans-serif";
   -webkit-font-smoothing: antialised;
   color: #232323;
- 
+  background: #F8F8F8;
+  height:100vh;
+  /* background: url('https://plus.unsplash.com/premium_photo-1673439304183-8840bd0dc1bf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+   /* opacity:calc(1) */
 }
 
 ul li:last-child a {
   background-color: #FE5F1E;
+
 }
 
 ul li:last-child a:hover {
-  background-color: #b23301;
+  border-color: #F8F8F8;
+  background-color: #FE5F1E;
+  color: #F8F8F8;
+}
+
+
+ul .element {
+  /* background: #FE5F1E ; */
+ 
+  transition: all 0.3s ease-in-out;
+  font-size: 20px;
+  padding:0.3rem 1.49rem;
+  color:black;
+  font-weight: bold;
+  /* border:2px solid black; */
+ 
+  
+
+
 }
 
 ul .element:hover {
-  background-color: coral;
+  /* background-color: coral;
   padding: 0.6rem 0.9rem;
   border: 2px solid red;
   border-radius: 5px;
   color: lightcyan;
   font-weight: bold;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; */
+  /* background: #b23301 ; */
+  background: #FE5F1E ;
+  /* border-color:lightsalmon; */
+  color: white;
+
+ 
+
+ 
 }
 
 .hero {
   background: #F8F8F8;
+
 }
 
 .outlet {
@@ -53,3 +84,34 @@ ul .element:hover {
 }
 
 
+.btn-primary{
+    background: #FE5F1E ;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover{
+   background: #b23301 ;
+}
+
+
+.empty-cart{
+  background:#F8F8F8 ;
+ 
+
+}
+
+
+.boxing{
+  text-align: right;
+  
+}
+
+
+.amount{
+  color: red;
+}
+/* 
+.login
+{
+   background:#F8F8F8 ;
+} */

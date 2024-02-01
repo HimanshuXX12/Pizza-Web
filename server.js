@@ -11,8 +11,11 @@ const  expressLayouts = require('express-ejs-layouts')
 const app=  express();
 
 
-app.set('views', path.join(__dirname,'./resource/views'));
-// app.use(expressLayouts);
+
+
+
+app.set('views', path.join(__dirname,'/resource/views'));
+app.use(expressLayouts);
 
 app.use(express.static('public'));
 
@@ -25,10 +28,20 @@ app.get("/",(req,res)=>{
 })
 
 
-app.get('/about',(req,res)=>{
-       res.render('about');
+app.get('/cart',(req,res)=>{
+     res.render('customers/cart')
 })
 
+
+app.get("/login",(req,res)=>{
+       res.render('auth/Login');
+})
+
+
+
+app.get('/register',(req,res)=>{
+      res.render('auth/register');
+})
 
 
 app.listen(80,"127.0.0.1",()=>{
