@@ -1,16 +1,20 @@
+
+
+@import '../../node_modules//noty/src/noty.scss';
+@import '../../node_modules/noty/src/themes/mint.scss' ;
+
 body {
   font-family: "Lato", "sans-serif";
   -webkit-font-smoothing: antialised;
   color: #232323;
   background: #F8F8F8;
-  height:100vh;
+  height: 100vh;
   /* background: url('https://plus.unsplash.com/premium_photo-1673439304183-8840bd0dc1bf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
-   /* opacity:calc(1) */
+  /* opacity:calc(1) */
 }
 
 ul li:last-child a {
   background-color: #FE5F1E;
-
 }
 
 ul li:last-child a:hover {
@@ -19,20 +23,14 @@ ul li:last-child a:hover {
   color: #F8F8F8;
 }
 
-
 ul .element {
   /* background: #FE5F1E ; */
- 
   transition: all 0.3s ease-in-out;
   font-size: 20px;
-  padding:0.3rem 1.49rem;
-  color:black;
+  padding: 0.3rem 1.49rem;
+  color: black;
   font-weight: bold;
   /* border:2px solid black; */
- 
-  
-
-
 }
 
 ul .element:hover {
@@ -44,18 +42,13 @@ ul .element:hover {
   font-weight: bold;
   transition: all 0.5s ease-in-out; */
   /* background: #b23301 ; */
-  background: #FE5F1E ;
+  background: #FE5F1E;
   /* border-color:lightsalmon; */
   color: white;
-
- 
-
- 
 }
 
 .hero {
   background: #F8F8F8;
-
 }
 
 .outlet {
@@ -78,40 +71,45 @@ ul .element:hover {
   color: #F8F8F8;
 }
 
-.packet:hover {
+/* .packet:hover {
   transform: scale(1.2);
   transition: all 0.3s;
+} */
+
+.btn-primary {
+  background: #FE5F1E;
+  transition: all 0.3s ease-in-out;
 }
 
-
-.btn-primary{
-    background: #FE5F1E ;
-    transition: all 0.3s ease-in-out;
+.btn-primary:hover {
+  background: #b23301;
 }
 
-.btn-primary:hover{
-   background: #b23301 ;
+.empty-cart {
+  background: #F8F8F8;
 }
 
-
-.empty-cart{
-  background:#F8F8F8 ;
- 
-
-}
-
-
-.boxing{
+.boxing {
   text-align: right;
-  
 }
 
-
-.amount{
+.amount {
   color: red;
 }
-/* 
-.login
-{
-   background:#F8F8F8 ;
-} */
+
+.login {
+  background: #F8F8F8;
+}
+
+.cocall {
+  background-color: red;
+}
+
+.lossed {
+  background-color: red;
+}
+
+.noty_theme_mint {
+  border-radius: 50px !important;
+  padding-left: 8px !important;
+}
