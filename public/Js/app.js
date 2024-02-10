@@ -6,6 +6,8 @@ const counter= document.getElementById('counter');
 // const changer= document.getElementById('changer');
 
 const changer= document.querySelectorAll(".changer");
+const linker= document.getElementById('special');
+console.log(linker);
 // const decrease=  document.querySelectorAll(".clicker");
 
 //  import Noty from '../../Noty';
@@ -14,7 +16,7 @@ const changer= document.querySelectorAll(".changer");
 //   console.log(Noty);
 
 
-
+   
   
 
     // function updater( data)
@@ -48,6 +50,7 @@ const changer= document.querySelectorAll(".changer");
         const input=clicker[i].dataset.pizza;
          
         const data= await JSON.parse(input);
+        console.log("data",data);
         
         
           data.text=clicker[i].innerText;

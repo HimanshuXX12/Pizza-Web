@@ -2,7 +2,7 @@
 
 const mongoose= require('mongoose');
 
-const data= require('../../data');
+// const data= require('../../data');
 
 
 // mongoose.connect("mongodb://localhost:27017/Pizza-web");

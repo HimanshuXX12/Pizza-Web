@@ -9,16 +9,17 @@ const Model= require('./app/models/model');
 const session= require('express-session');
 const flash= require('express-flash');
 const  MongoDbstore=   require('connect-mongo');
+// const body= require('body-parser');
 // const quantity= require('./public/Js/app');
 // const axios= require('axios');
+const bodyParser= require('body-parser');
+// console.log(bodyParser);
 
 
 
 
 
-
-
-
+ 
 
 
 
@@ -39,6 +40,9 @@ const  expressLayouts = require('express-ejs-layouts');
 
  
 const app=  express(); 
+
+
+
 
 
 const route= require('./routes/web');
@@ -65,7 +69,9 @@ app.use(session({
 
 app.use(flash());
 app.use(express.static('public'));
-app.use(express.json());
+// app.use(body.urlencoded({extended:false}));
+
+
 
 
 // Global middle ware
@@ -78,6 +84,8 @@ app.use((req,res,next)=>{
 app.use(expressLayouts);
 app.set('views', path.join(__dirname,'/resource/views'));
 app.set('view engine','ejs');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(express.urlencoded({ extended: true })); // support encoded bodies
 
 
 //       next();
@@ -87,9 +95,10 @@ app.set('view engine','ejs');
 
   
 
-// Model.create(products);
+// Model.create(products); 
      
 // })
+
 
 route(app);
 

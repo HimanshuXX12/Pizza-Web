@@ -109,7 +109,18 @@ ul .element:hover {
   background-color: red;
 }
 
+.texter{
+  color:red;
+}
+
 .noty_theme_mint {
   border-radius: 50px !important;
   padding-left: 8px !important;
+}
+
+.decreaser{
+  border: 2px solid #FE5F1E;
+  border-radius: 10px;
+  color: #FE5F1E;
+  transition: all 0.5s ease-in-out;
 }

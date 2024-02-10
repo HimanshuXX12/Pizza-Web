@@ -12,8 +12,8 @@ function homeControllers()
           const pizzas=  await Model.find();
           
         //    console.log(session.cart);
-
-          return res.render('home',{pizza:pizzas});
+      
+          return res.render('home',{pizza:pizzas });
       }
    }
     

@@ -76,7 +76,7 @@ function cartControllers()
                 
                 if(cart.items[req.body._id].qty<=0)
                 {
-                  delete(cart.items,req.body._id);
+                    delete cart.items[req.body._id];
                 }
                 else
                 {
@@ -100,7 +100,8 @@ function cartControllers()
                {
                   total_item:req.session.cart.quantity,
                   cart:req.session.cart,
-                  details:cart.items[req.body._id]
+                  details:cart.items[req.body._id],
+                  
                }
                   );
              },
