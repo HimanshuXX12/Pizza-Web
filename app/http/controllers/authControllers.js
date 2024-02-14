@@ -108,9 +108,10 @@ function authControllers()
                           }
                           else if (data)
                           {
-                              if(!req.session.user_name)
+                              if(!req.session.user)
                               {
-                                  req.session.user_name=user.name;
+                                  req.session.user=user;
+
                               }
                                   
                              return res.redirect('/');
@@ -127,7 +128,8 @@ function authControllers()
          },
          postlogout: async function(req,res)
          {
-            delete req.session.user_name;
+            delete req.session.user;
+            // delete req.session.cart;
              return res.redirect('/login');
          }
     }

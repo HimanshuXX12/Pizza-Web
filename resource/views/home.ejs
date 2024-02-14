@@ -4,7 +4,7 @@
         <div class="w-1/2">
             <h6 class="text-lg m-4 font-bold"><em>Are you Hungry?</em></h6>
             <h1 class="text-6xl font-bold m-4">Don't Wait!</h1>
-            <button class=" px-6 py-2 ml-4 rounded-full text-white font-bold btn-primary">Order Now</button>
+            <button class=" px-6 py-2 ml-4 rounded-full text-white font-bold btn-primary"><a href="#pizzas">Order Now</a></button>
         </div>
         <div class="w-1/2">
             <img src="/Img/hero-pizza.png" alt="hero pizza">
@@ -21,7 +21,7 @@
         <% pizza.forEach(function(pizza)
         { %>
 
-            <div class="w-64 packet">
+            <div class="w-64 packet" id="pizzas">
                 <img src="/Img/<%=pizza.image%>" alt="pizza cart" class="h-40 mb-4 mx-auto">
                 <div class="text-center">
                     <h2 class="mb-4 text-lg"><%=pizza.name%></h2>

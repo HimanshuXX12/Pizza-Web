@@ -118,9 +118,9 @@ ul .element:hover {
   padding-left: 8px !important;
 }
 
-.decreaser{
-  border: 2px solid #FE5F1E;
-  border-radius: 10px;
+
+
+
+a.link {
   color: #FE5F1E;
-  transition: all 0.5s ease-in-out;
 }

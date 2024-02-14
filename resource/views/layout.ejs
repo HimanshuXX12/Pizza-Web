@@ -36,17 +36,20 @@
                 
                 <li class="ml-6  element rounded-full"><a href="/" id="name">Menu</a></li>
                 <li class="ml-6 element rounded-full"><a href="#">Offers</a></li>
+                <% if(session.user){ %>
+                <li class="ml-6 element rounded-full"><a href="/status"><%='Orders'%></a></li>
                 
+                 <%}%>
 
                     <li class="ml-6 element rounded-full">
                         <form action="/logout" method="post" id="submit">  
-                            <a onclick="document.getElementById('submit').submit()" href="/<%=session.user_name? 'logout' : 'register'%>" ><%=session.user_name? 'Logout' :'Register'%></a>
+                            <a onclick="document.getElementById('submit').submit()" href="/<%=session.user? 'logout' : 'register'%>" ><%=session.user? 'Logout' :'Register'%></a>
                         </form>
                     </li>
                
-                <li class="ml-6 element rounded-full"><a href="/<%=session.user_name? '' : 'login'%>"><%=session.user_name? session.user_name: 'Login'%></a></li>
+                <li class="ml-6 element rounded-full"><a href="/<%=session.user? '' : 'login'%>"><%=session.user? session.user.name: 'Login'%></a></li>
                 <li class="ml-6 "><a href="/cart" class="inline-block px-4 py-2 rounded-full flex items-center">
-                    <span class="font-bold text-white text-lg mr-2" id="counter"><%=session.user_name && session.cart ? session.cart.quantity: ''%></span>
+                    <span class="font-bold text-white text-lg mr-2" id="counter"><%=session.user && session.cart ? session.cart.quantity: ''%></span>
                     <img src="/Img/cart.png" alt="cart"></a>
                 </li>
                 
