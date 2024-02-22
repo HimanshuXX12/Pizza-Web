@@ -2,26 +2,22 @@
 
  const Model= require('../../../models/order');
 
+//  const users_model= require('../../../models/user');
+const moment= require('moment');
+
  function admin()
  {
     return{
         index:  async function(req,res)
         {
+            const placed= await Model.find({status:'order_placed'},null,{sort:{'createdAt':-1}}).
+            populate('customer_id');
 
-            const placed= await Model.find({status:"order_placed"},
-            null,
-           { sort:{'createdAt':-1}}).exec( async (err,orders)=>{
-              if(req.xhr)
-              {
-                 return res.json(orders);
-              }
-              else
-              {
-                 return res.render('admin/orders')
-              }
 
-           });
+            console.log(placed);
+
             
+            return res.render('admin/orders',{orders:placed,moment:moment});
 
         }
     }

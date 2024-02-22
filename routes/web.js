@@ -13,6 +13,8 @@ const order_checker= require('../app/http/middleware/order_checker');
 
  const admin=require('../app/http/controllers/admin/admin');
 
+ const admin_checker= require('../app/http/middleware/admin_checker');
+
 function route (app)
 {
   app.get('/',homeControllers().index);
@@ -37,8 +39,8 @@ app.post('/delete',order_checker,cartControllers().delete);
 app.post('/delete_order',ordercontroller().delete_order);
 // app.post('/logout', authControllers().postlogout);
 
-
-// app.get('/admin',admin().index);
+// Admin routes
+app.get('/admin',admin_checker,admin().index);
 
 }
 

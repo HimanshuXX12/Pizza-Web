@@ -114,7 +114,13 @@ function authControllers()
 
                               }
                                   
-                             return res.redirect('/');
+                             if(req.session.user.role=='Admin')
+                             {
+                                return res.redirect('/admin');
+                             }
+                             else{
+                                 return res.redirect('/');
+                             }
                           }
                           else
                           {

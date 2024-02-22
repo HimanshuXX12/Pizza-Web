@@ -12,7 +12,7 @@ const mongoose= require('mongoose');
 
 const Schema= mongoose.Schema({
    customer_id:{
-      ref:'User',
+      ref:'user',
       type:mongoose.Schema.Types.ObjectId
    },
    items:{type:Object,required:true},
