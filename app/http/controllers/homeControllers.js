@@ -2,6 +2,8 @@
 
 const mongoose= require('mongoose');
 
+
+const data= require('../../../data');
 const Model= require('../../models/model');
 
 function homeControllers()
@@ -9,7 +11,12 @@ function homeControllers()
    const obj={
       index:  async function(req,res)
       {
+        
+
+         
           const pizzas=  await Model.find();
+
+
           
         //    console.log(session.cart);
       

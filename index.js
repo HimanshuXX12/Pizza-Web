@@ -27,8 +27,7 @@ const Emitter= require('events');
 
 
 
-mongoose.connect(process.env.CONNECTION_URL);
-
+mongoose.connect(process.env.URL);
 const connection= mongoose.connection;
 
 connection.once('open',()=>{
@@ -52,7 +51,7 @@ const route= require('./routes/web');
 
 
 
-
+ 
 
 // session configuration
 app.use(session({
@@ -61,7 +60,7 @@ app.use(session({
      resave:false,
      saveUninitialized:false,
      store:MongoDbstore.create({
-          mongoUrl:process.env.CONNECTION_URL,
+          mongoUrl:process.env.URL,
           collection:'session',
      }) 
      
