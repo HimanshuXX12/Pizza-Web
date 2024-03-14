@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "Noty": "nodemon Noty.js",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "kutta": "nodemon webpack.mix.js",
     "pullu": "nodemon app/models/model.js",
     "test": "echo \"Error: no test specified\" && exit 1",
