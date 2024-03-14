@@ -1,6 +1,5 @@
 node_modules
 waste.txt
 .env
-.gitignore
 axios.js
-
+webpack.mix.js
