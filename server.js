@@ -15,19 +15,19 @@ const  MongoDbstore=   require('connect-mongo');
 const bodyParser= require('body-parser');
 // console.log(bodyParser);
 
-
+const Emitter= require('events');
 
 
 
  
  
- 
+     
 
 
 
-const url= "mongodb://localhost:27017/Pizza-web"
 
-mongoose.connect(url);
+
+mongoose.connect(process.env.CONNECTION_URL);
 
 const connection= mongoose.connection;
 
@@ -42,8 +42,9 @@ const  expressLayouts = require('express-ejs-layouts');
 const app=  express(); 
 
 
+const eventEmitter= new Emitter();
 
-
+app.set('eventEmitter',eventEmitter);
 
 const route= require('./routes/web');
 
@@ -103,6 +104,11 @@ app.use(express.urlencoded({ extended: true })); // support encoded bodies
 route(app);
 
 
+app.use((req,res)=>{
+       res.status(404).render('404_page');
+})
+
+
 
 
 // app.post("/update",(req,res)=>{
@@ -129,6 +135,28 @@ route(app);
 //      console.log(req.session.cart);
 // })
 
-app.listen(80,"127.0.0.1",()=>{
+ const server=app.listen(800,"127.0.0.1",()=>{
      console.log("server   is running port is running ");
-})   
+})  
+
+
+
+
+
+
+const { Server } =  require("socket.io");
+
+const io= new  Server(server)
+
+
+
+
+
+eventEmitter.on('updatter',(data)=>{
+
+     console.log("this is working");
+     console.log(data);
+    io.emit('order_linker',data);
+})
+
+

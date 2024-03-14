@@ -18,6 +18,11 @@ const order= document.querySelectorAll('.order_deleter');
  const gayab= document.getElementById('success-alert');
 //  const table= document.getElementById('orderTableBody');
 
+const order_getter=  document.getElementById('hidden_type');
+
+// Status getter
+
+
 
 
 
@@ -176,25 +181,79 @@ const order= document.querySelectorAll('.order_deleter');
     })
  }
 
-   function decreaser(data)
-   {
-
-     axios.post('/decrease',data).then( async (res)=>{
-        console.log(res);
-           counter.innerText= await res.data.total_item;
-     }).catch((err)=>{
-         console.log(err);
-     })
-   }
+ 
 
 
 
 
- for( let i=0;i<decrease.length;i++)
- {
-    decrease[i].addEventListener('click', async (e)=>{
 
-         const data= await JSON.parse(decrease[i].dataset.pizza);
-          decreaser(data);
-    })
- }
+//  Function color chnager
+ 
+ const elements= document.querySelectorAll('.status_line');
+
+
+  function status_changer(order)
+  {
+     let  status=true;
+    for( let i=0;i<elements.length;i++)
+    {
+       let  data=elements[i].dataset.status;
+       
+       if(status)
+       {
+         elements[i].classList.add('step-completed');
+
+       }
+       if(data==order.status)
+       {
+        
+            status=false;
+         
+           if(elements[i].nextElementSibling)
+           {
+              elements[i].nextElementSibling.classList.add('current');
+           }
+
+       }
+      
+    }
+    
+  }
+
+ const orders= order_getter? order_getter.value :null;
+
+const data=JSON.parse(orders);
+const data_2=data;
+
+status_changer(data);
+
+
+const socket= io();
+
+// socket.emit('join',`order_${data._id}`);
+
+
+
+// Socket.emit('join',`order_${data._id}`);
+
+socket.on('order_linker',(object)=>{
+   console.log("reciving at the client end");
+})
+
+
+function wrap()
+{
+
+   let links=document.getElementById("bars");
+   links.classList.toggle("active");
+
+}
+
+
+const burger= document.getElementById('burger');
+
+burger.addEventListener('click',()=>{
+   wrap();
+})
+
+

@@ -5,7 +5,7 @@
 
         <% if(session.cart.price!=0){
              %>
-     <div class="container mx-auto order text-center w-1/2">
+     <div class="container mx-auto order text-center w-full  xl:w-1/2 p-4">
         <div class="flex items-center  border-b border-gray-300 pb-4 ">
             <img src="/Img/cart-black.png" alt="">
             <h1 class="font-bold ml-4 text-2xl">Order Summary </h1>
@@ -19,13 +19,13 @@
 
                        
 
-                            <div class="flex items-center  pizza-list justify-between">
+                            <div class="flex items-center   pizza-list justify-between">
                                 
-                                <div class="flex items-center mt-4" >
-                                    <img src="/Img/<%=pizza.item.image%>" alt="" class="w-24">
-                                    <div class="ml-8 text-justify">
+                                    <div class="flex items-center mt-4" >
+                                        <img src="/Img/<%=pizza.item.image%>" alt="" class="w-24">
+                                        <div class="ml-8 text-justify">
                                             <h1 class="font-bold uppercase"><%=pizza.item.name %></h1>
-                                        <span class="font-bold  uppercase"><%=pizza.item.size%></span>
+                                            <span class="font-bold  uppercase"><%=pizza.item.size%></span>
                                         </div>
                                     </div>
                                     <span class="font-bold"><%=pizza.qty%>Pcs</span>
@@ -87,7 +87,7 @@
             </div>
         
      </div>
-     <% } else { %>
+        <% } else { %>
       
     <div class="container mx-auto text-center">
         <h1 class="text-3xl font-bold mb-2">Cart Empty</h1>
@@ -98,9 +98,9 @@
 
     </div>
 
-    <% } %>
+        <% } %>
 
- <% } else if((session.cart && !session.user)|| (!session.cart && !session.user)) {%>
+ <% } else if(!session.user) {%>
 
     <div class="container mx-auto text-center">
         <h1 class="text-3xl font-bold mb-2">Cart Empty</h1>
@@ -111,7 +111,7 @@
 
     </div>
 
-    <%} else  {%>
+<%} else  {%>
         <div class="container mx-auto text-center">
             <h1 class="text-3xl font-bold mb-2">Cart Empty</h1>
             <p class="text-gray-500 text-lg  mb-12">You probably haven't ordered a pizza yet  <br>To order a pizza, go to the main page</p> 
@@ -121,7 +121,7 @@
     
         </div>
 
-       <% } %>
+ <% } %>
 </section>
 
 

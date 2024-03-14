@@ -69,6 +69,17 @@ function order()
               console.log(req.body);
              
                return res.json({});
+        },
+        stages : async function(req,res)
+        {
+          const order= await Model.findById({_id:req.params.id});
+
+             if(req.session.user._id.toString()==order.customer_id.toString())
+             {
+               return res.render('customers/order_status',{order:order});
+
+             }
+
         }
 
     }

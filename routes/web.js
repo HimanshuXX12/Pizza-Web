@@ -14,6 +14,7 @@ const order_checker= require('../app/http/middleware/order_checker');
  const admin=require('../app/http/controllers/admin/admin');
 
  const admin_checker= require('../app/http/middleware/admin_checker');
+//  const new_checker=require('../app/http/middleware/new_checker');
 
 function route (app)
 {
@@ -22,7 +23,8 @@ function route (app)
   app.get('/cart',cartControllers().cart)
 
  
-app.get("/login",checker,authControllers().login)
+app.get("/login",checker,authControllers().login);
+
 
 // app.post('/register',authControllers().postregister)
 app.get('/logout',order_checker,authControllers().postlogout)
@@ -40,7 +42,12 @@ app.post('/delete_order',ordercontroller().delete_order);
 // app.post('/logout', authControllers().postlogout);
 
 // Admin routes
-app.get('/admin',admin_checker,admin().index);
+app.get('/admin',order_checker,admin_checker,admin().index);
+app.post('/admin',admin_checker,admin().status);
+
+app.get('/status/:id',order_checker,ordercontroller().stages);
+
+
 
 }
 
