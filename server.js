@@ -135,7 +135,7 @@ app.use((req,res)=>{
 //      console.log(req.session.cart);
 // })
 
- const server=app.listen(800,"127.0.0.1",()=>{
+ const server=app.listen(process.env.PORT|| 300,"127.0.0.1",()=>{
      console.log("server   is running port is running ");
 })  
 
