@@ -1,8 +1,5 @@
 
 
-@import '../../node_modules//noty/src/noty.scss';
-@import '../../node_modules/noty/src/themes/mint.scss' ;
-
 body {
   font-family: "Lato", "sans-serif";
   -webkit-font-smoothing: antialised;
