@@ -61,7 +61,7 @@ app.use(session({
      resave:false,
      saveUninitialized:false,
      store:MongoDbstore.create({
-          mongoUrl:"mongodb://localhost:27017/Pizza-web",
+          mongoUrl:process.env.CONNECTION_URL,
           collection:'session',
      }) 
      
