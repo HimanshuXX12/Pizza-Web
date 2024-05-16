@@ -1,5 +1,6 @@
 node_modules
 waste.txt
+data.js
 .env
 axios.js
 webpack.mix.js

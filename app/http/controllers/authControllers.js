@@ -31,12 +31,13 @@ function authControllers()
             Model.exists({email:email}).then((result)=>{
                    if(result)
                    {
-                    console.log("hii",result);
+                   
                     req.flash('error',"Already exists");
-                    return res.redirect('/register');
-                   }
+                    return res.redirect('/login');
+                   } 
             }).catch((err)=>{
                   console.log(err) ; 
+                  return res.redirect('/register');
             })
 
             //  creating hash password

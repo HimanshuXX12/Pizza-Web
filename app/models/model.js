@@ -19,7 +19,7 @@ const Schema= mongoose.Schema({
 })
 
 
-const Model= mongoose.model( 'pizza-item',Schema);
+const Model= mongoose.model( 'pizza-list',Schema);
 
 module.exports= Model;
 

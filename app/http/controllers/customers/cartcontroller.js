@@ -119,6 +119,7 @@ function cartControllers()
              let cart= req.session.cart;
              let deduct=req.body.qty*req.body.item.price;
 
+            //  Quantity calculation
              cart.quantity=cart.quantity-req.body.qty;
              
              cart.price=cart.price-deduct;

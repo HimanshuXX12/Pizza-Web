@@ -145,33 +145,39 @@ const order_getter=  document.getElementById('hidden_type');
         //   console.log(data.text);
         
         //  updater(data);
+
        
+          
+            
+                  axios.post('/update',data).then( async (res)=>{
+                     // console.log("Responce added",res.data.details.item.name);
+                  
+                     counter.innerText= await  res.data.total_item;
+                     
+                     let output=res.data.details.item.name;
+                     
+                     if(data.text=='+')
+                     {
+                        output=output+" is added sucessfully";
+                        
+                        alert(output);
+                      }
+                      else
+                      {
+                         output= output +" is removed from the cart sucessfully";
+                         alert(output);
+                      }
+                      
+                      
+                      
+                   }).catch((err)=>{
+                      console.log(err);
+                      
+                   })
+                
 
-           axios.post('/update',data).then( async (res)=>{
-              // console.log("Responce added",res.data.details.item.name);
-              counter.innerText= await  res.data.total_item;
-              
-              let output=res.data.details.item.name;
-              
-              if(data.text=='+')
-              {
-                 output=output+" is added sucessfully";
-                 
-                 alert(output);
-               }
-               else
-               {
-                  output= output +" is removed from the cart sucessfully";
-                  alert(output);
-               }
-               
-               
-               
-            }).catch((err)=>{
-               console.log(err);
-            })
-         
-
+             
+            
        
 
 

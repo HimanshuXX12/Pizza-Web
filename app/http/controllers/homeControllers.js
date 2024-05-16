@@ -15,8 +15,6 @@ function homeControllers()
 
          
           const pizzas=  await Model.find();
-
-
           
         //    console.log(session.cart);
       

@@ -5,10 +5,10 @@ const express= require('express');
 const ejs= require('ejs');
 const path= require('path');
 const mongoose= require('mongoose');
-const Model= require('./app/models/model');
+
 const session= require('express-session');
 const flash= require('express-flash');
-const  MongoDbstore=   require('connect-mongo');
+const  MongoDbstore=   require('connect-mongo'); 
 // const body= require('body-parser');
 // const quantity= require('./public/Js/app');
 // const axios= require('axios');
@@ -19,26 +19,30 @@ const Emitter= require('events');
 
 
 
+let  db_link="mongodb://localhost:27017/Pizza-Web";
+
+  
+
  
- 
-     
 
 
 
 
+mongoose.connect(db_link).then(()=>{
+      console.log('Database is conncted');
+});
+const connection= mongoose.connection; 
 
-mongoose.connect(process.env.URL);
-const connection= mongoose.connection;
-
-connection.once('open',()=>{
-     console.log('data base is connected');
-})
-
+connection.once('open',()=>{ 
+     console.log('data base is connected'); 
+})  
+  
 const  expressLayouts = require('express-ejs-layouts');
 
+   
+const app=  express();   
 
- 
-const app=  express(); 
+
 
 
 const eventEmitter= new Emitter();
@@ -48,7 +52,7 @@ app.set('eventEmitter',eventEmitter);
 const route= require('./routes/web');
 
 
-
+     
 
 
  
@@ -60,24 +64,25 @@ app.use(session({
      resave:false,
      saveUninitialized:false,
      store:MongoDbstore.create({
-          mongoUrl:process.env.URL,
+          mongoUrl:db_link,
           collection:'session',
      }) 
      
-}))
+})) 
 
 
 app.use(flash());
 app.use(express.static('public'));
 // app.use(body.urlencoded({extended:false}));
 
+   
 
-
+ 
 
 // Global middle ware
 app.use((req,res,next)=>{
      res.locals.session=req.session;
-     next();
+     next(); 
 })
 
 // set template engine
@@ -134,21 +139,21 @@ app.use((req,res)=>{
 //      console.log(req.session.cart);
 // })
 
- const server=app.listen(process.env.PORT|| 300,"127.0.0.1",()=>{
+ const server=app.listen(80,"127.0.0.1",()=>{
      console.log("server   is running port is running ");
 })  
+ 
+ 
+ 
+  
 
-
-
-
-
-
+ 
 const { Server } =  require("socket.io");
 
-const io= new  Server(server)
+const io= new  Server(server);
 
 
-
+ 
 
 
 eventEmitter.on('updatter',(data)=>{
@@ -159,3 +164,4 @@ eventEmitter.on('updatter',(data)=>{
 })
 
 
+ 
