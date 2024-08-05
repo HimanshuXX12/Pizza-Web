@@ -200,7 +200,7 @@ const order_getter=  document.getElementById('hidden_type');
 
   function status_changer(order)
   {
-     let  status=true;
+     let  status=true; 
     for( let i=0;i<elements.length;i++)
     {
        let  data=elements[i].dataset.status;
@@ -208,10 +208,10 @@ const order_getter=  document.getElementById('hidden_type');
        if(status)
        {
          elements[i].classList.add('step-completed');
-
+   
        }
        if(data==order.status)
-       {
+       {  
         
             status=false;
          

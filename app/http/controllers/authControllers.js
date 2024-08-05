@@ -1,7 +1,8 @@
 const Model= require('../../models/user');
-
+const jwt= require('jsonwebtoken');
 const crypt= require('bcrypt');
-
+const { v4: uuidv4 } = require('uuid');
+const { setUser,getUser}= require('../../../service/auth');
 
 function authControllers()
 {
@@ -33,7 +34,7 @@ function authControllers()
                    {
                    
                     req.flash('error',"Already exists");
-                    return res.redirect('/login');
+                    return res.redirect('/register');
                    } 
             }).catch((err)=>{
                   console.log(err) ; 
@@ -81,7 +82,8 @@ function authControllers()
                 req.flash('error',"Enter the mail and password");
                 return res.redirect('/login');
              }
-             else{
+             else
+             {
                  if(!email ||!password)
                  {
                      req.flash('error',"Both required");
@@ -109,6 +111,14 @@ function authControllers()
                           }
                           else if (data)
                           {
+                            
+                            const token=setUser(user);
+                            
+                             res.cookie('token',token,{
+                                httpOnly:true,
+                                expire:new  Date(Date.now()+60*1000*60)
+                             });
+                            
                               if(!req.session.user)
                               {
                                   req.session.user=user;
@@ -119,7 +129,8 @@ function authControllers()
                              {
                                 return res.redirect('/admin');
                              }
-                             else{
+                             else
+                             {
                                  return res.redirect('/');
                              }
                           }
@@ -136,6 +147,7 @@ function authControllers()
          postlogout: async function(req,res)
          {
             delete req.session.user;
+            res.clearCookie('uid');
             // delete req.session.cart;
              return res.redirect('/login');
          }

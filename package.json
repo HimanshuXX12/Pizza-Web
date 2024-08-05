@@ -14,19 +14,22 @@
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "connect-mongo": "^5.1.0",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
     "moment": "^2.30.1",
     "mongodb": "^6.5.0",
     "mongoose": "^8.1.1",
     "noty": "^3.2.0-beta-deprecated",
     "npm-watch": "^0.11.0",
     "socket.io": "^4.7.4",
-    "socket.io-client": "^4.7.4"
+    "socket.io-client": "^4.7.4",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

@@ -2,12 +2,22 @@
 const bcrypt= require('bcrypt')
 const admin_checker=  function(req,res,next)
 {
-      if((req.session.user.email=="admin124@gmail.com" &&  req.session.user.role=='Admin'))
+    
+       if(!req.session.user)
       {
-          return next();
+          return res.redirect('/');
       }
-      else{
-         return res.redirect('/');
+      else
+      {
+                           
+            if((req.session.user.email=="admin124@gmail.com" &&  req.session.user.role=='Admin'))
+                {
+                    return next();
+                }
+                else{
+                    return res.redirect('/');
+                }
+
       }
 } 
  

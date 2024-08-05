@@ -50,9 +50,9 @@
                  <%}%>
 
                     <li class="ml-6 element rounded-full">
-                        <form action="/logout" method="post" id="submit">  
-                            <a onclick="document.getElementById('submit').submit()" href="/<%=session.user? 'logout' : 'register'%>" ><%=session.user? 'Logout' :'Register'%></a>
-                        </form>
+                        
+                            <a  href="/<%=session.user? 'logout' : 'register'%>" ><%=session.user? 'Logout' :'Register'%></a>
+                       
                     </li>
                
                 <li class="ml-6 element rounded-full"><a href="/<%=session.user? '' : 'login'%>"><%=session.user? session.user.name: 'Login'%></a></li>
